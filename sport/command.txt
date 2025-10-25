@@ -1,0 +1,11 @@
+docker run --rm -v F:\sport2\client:/local openapitools/openapi-generator-cli generate `
+  -i http://192.168.1.106:8004/swagger/v1/swagger.json `
+  -g dart-dio `
+  -o /local
+
+
+  then go to related folder which contains generated code: her ./lib/client
+
+  then run this command:
+    flutter pub run build_runner build --delete-conflicting-outputs
+

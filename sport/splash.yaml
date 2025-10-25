@@ -1,0 +1,24 @@
+flutter_native_splash:
+  fullscreen: true
+  android_gravity: fill
+  ios_content_mode: scaleToFill
+  color: "#ffffff"
+  color_dark: "#272727"
+  image: assets/splash/light1.png
+  image_dark: assets/splash/dark1.png
+
+  android_12:
+    fullscreen: true
+    android_gravity: fill
+    ios_content_mode: scaleToFill
+    color: "#ffffff"
+    color_dark: "#272727"
+    image: assets/splash/light1.png
+    image_dark: assets/splash/dark1.png
+
+  android: true
+  ios: true
+  web: false
+
+  #flutter pub run flutter_native_splash:create --path=splash.yaml
+  #flutter pub run flutter_native_splash:remove
