@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
+import 'package:sport/core/network/network_module.dart';
 import 'package:sport/costants/MenuItems.dart';
 import 'package:sport/costants/Constants.dart';
 import 'package:sport/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:sport/services/token_service.dart';
 import 'package:sport/utils/theme/theme.dart';
 
-void main() {
-  // NetworkModule.setup();
-  // Get.put<FlutterSecureStorage>(const FlutterSecureStorage());
-  // Get.put<TokenService>(TokenService(Get.find<FlutterSecureStorage>()));
+Future<void> main() async {
+  await dotenv.load(fileName: 'assets/.env');
+
+  Get.put<FlutterSecureStorage>(const FlutterSecureStorage());
+  Get.put<TokenService>(TokenService(Get.find<FlutterSecureStorage>()));
+  NetworkModule.setup();
 
   runApp(const App());
 }

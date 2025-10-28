@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/src/extensions/export.dart';
+import 'package:get/get.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
+import 'package:openapi/openapi.dart';
 import 'package:sport/common/styles/spacing_styles.dart';
 import 'package:sport/utils/constants/app_colors.dart';
 import 'package:sport/utils/constants/app_sizes.dart';
@@ -9,7 +12,8 @@ import 'package:sport/utils/constants/text_strings.dart';
 import 'package:sport/utils/helpers/helper_function.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
+  final UserFacadeApi client = Get.find<UserFacadeApi>();
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +90,16 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            LoginCommand command = LoginCommand((b) {
+                              b.username = 'admin';
+                              b.password = 'Jafar@123test';
+                            });
+                            final res = await client.apiUserLoginPost(
+                              loginCommand: command,
+                            );
+                            log('Login Response: $res');
+                          },
                           child: Text(TextStrings.signIn),
                         ),
                       ),

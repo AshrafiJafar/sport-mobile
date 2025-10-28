@@ -18,7 +18,7 @@ class OnboardingController extends GetxController {
   void nextPage() {
     if (currentPageIndex.value == 2) {
       // Navigate to home or login screen
-      Get.offAll(const LoginScreen());
+      Get.offAll(LoginScreen());
     } else {
       currentPageIndex.value += 1;
       int page = currentPageIndex.value++;
