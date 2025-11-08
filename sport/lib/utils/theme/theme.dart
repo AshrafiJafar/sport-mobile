@@ -4,6 +4,7 @@ import 'package:sport/utils/theme/custome_theme/app_bottom_sheet_theme.dart';
 import 'package:sport/utils/theme/custome_theme/app_chip_theme.dart';
 import 'package:sport/utils/theme/custome_theme/app_elevated_button_theme.dart';
 import 'package:sport/utils/theme/custome_theme/app_outline_button_theme.dart';
+import 'package:sport/utils/theme/custome_theme/app_progress_indicator_theme.dart';
 import 'package:sport/utils/theme/custome_theme/app_text_field_theme.dart';
 import 'package:sport/utils/theme/custome_theme/app_text_theme.dart';
 
@@ -22,6 +23,8 @@ class AppTheme {
     elevatedButtonTheme: AppElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: AppOutlineButtonTheme.lightOutlineButtonTheme,
     inputDecorationTheme: AppTextFieldTheme.lightInputDecorationTheme,
+    progressIndicatorTheme:
+        AppProgressIndicatorTheme.lightProgressIndicatorTheme,
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -36,5 +39,7 @@ class AppTheme {
     elevatedButtonTheme: AppElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: AppOutlineButtonTheme.darkOutlineButtonTheme,
     inputDecorationTheme: AppTextFieldTheme.darkInputDecorationTheme,
+    progressIndicatorTheme:
+        AppProgressIndicatorTheme.darkProgressIndicatorTheme,
   );
 }

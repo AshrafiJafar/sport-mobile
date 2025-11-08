@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:openapi/openapi.dart';
 import 'package:sport/core/interceptors/auth_interceptor.dart';
+import 'package:sport/core/interceptors/error_interceptor.dart';
 import 'package:sport/core/interceptors/refresh_interceptor.dart';
 import 'package:sport/core/network/api_client.dart';
 
@@ -26,6 +27,7 @@ class NetworkModule {
     dio.interceptors.add(
       RefreshInterceptor(dio, UserFacadeApi(dio, standardSerializers)),
     );
+    dio.interceptors.add(ErrorInterceptor());
 
     // Inject ApiClient
     Get.put(ApiClient(dio, standardSerializers));

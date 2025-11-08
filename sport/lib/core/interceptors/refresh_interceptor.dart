@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide Response;
 import 'package:openapi/openapi.dart';
 import 'package:sport/services/token_service.dart';
 
