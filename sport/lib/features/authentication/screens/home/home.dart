@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:sport/costants/MenuItems.dart';
+import 'package:sport/costants/menu_items.dart';
+import 'package:sport/features/drawer/drawer.dart';
+import 'package:sport/features/event/screens/create_event/create_event.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  MenuItem currentItem = MenuItems.payment;
+  MenuItem currentItem = MenuItems.createEvent;
   @override
   Widget build(BuildContext context) => ZoomDrawer(
     style: DrawerStyle.defaultStyle,
@@ -35,8 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getScreen() {
     switch (currentItem) {
-      case MenuItems.payment:
-        return PaymentPage();
+      case MenuItems.createEvent:
+        return CreateEventScreen();
       case MenuItems.promos:
         return PromoPahe();
       case MenuItems.settings:
@@ -55,72 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         );
     }
-  }
-}
-
-class MenuPage extends StatelessWidget {
-  final MenuItem currentItem;
-  final ValueChanged<MenuItem> onSelectedItem;
-  const MenuPage({
-    Key? key,
-    required this.currentItem,
-    required this.onSelectedItem,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData.dark(),
-      child: Scaffold(
-        backgroundColor: Colors.indigo,
-        body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Spacer(),
-              ...MenuItems.all.map(buildMenuItem),
-              Spacer(flex: 2),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildMenuItem(MenuItem item) => ListTileTheme(
-    selectedColor: Colors.white,
-    child: ListTile(
-      selectedTileColor: Colors.black26,
-      selected: currentItem == item,
-      minLeadingWidth: 20,
-      leading: Icon(item.icon),
-      title: Text(item.title),
-      onTap: () => onSelectedItem(item),
-    ),
-  );
-}
-
-class MenueWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(Icons.menu),
-      onPressed: () {
-        ZoomDrawer.of(context)!.toggle();
-      },
-    );
-  }
-}
-
-class PaymentPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text("Payment Page"),
-        leading: MenueWidget(),
-      ),
-    );
   }
 }
 

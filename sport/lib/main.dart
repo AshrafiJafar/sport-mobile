@@ -3,8 +3,8 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:sport/core/network/network_module.dart';
-import 'package:sport/costants/Constants.dart';
-import 'package:sport/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:sport/costants/constants.dart';
+import 'package:sport/features/authentication/screens/home/home.dart';
 import 'package:sport/services/token_service.dart';
 import 'package:sport/utils/theme/theme.dart';
 
@@ -33,7 +33,8 @@ class App extends StatelessWidget {
       //   visualDensity: VisualDensity.adaptivePlatformDensity,
       // ),
       darkTheme: AppTheme.darkTheme,
-      home: const OnBoardingScreen(),
+      //home: const OnBoardingScreen(),
+      home: HomeScreen(),
     );
   }
 }
